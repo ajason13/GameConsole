@@ -15,7 +15,34 @@ namespace GameConsole
             //player.DaysSinceLastLogin = 42;
             //PlayerDisplayer.Write(player);
 
+            //int days = player.DaysSinceLastLogin.Value;
+            // ?. checks if player object is null AND DaysSinceLastLogin property is null
+            int days = player?.DaysSinceLastLogin ?? -1;
 
+            /*
+            if(player != null)
+            {
+                days = player.DaysSinceLastLogin ?? -1;
+            }
+            else
+            {
+                days = -1;
+            }
+            */
+
+            Console.WriteLine(days);
+
+            PlayerCharacter[] players = new PlayerCharacter[3]
+            {
+                new PlayerCharacter{Name = "Sarah"},
+                new PlayerCharacter(),
+                null
+            };
+
+            // So player can be null and array value at index 0 can be null
+            string p1 = players?[0]?.Name;
+            string p2 = players?[1]?.Name;
+            string p3 = players?[2]?.Name;
 
             Console.ReadLine();
         }
@@ -37,3 +64,14 @@ namespace GameConsole
 // - Conditional Operator ?:
 // - Null-Coalescing Operator ??
 // - Null-Conditional Operator ?. ?[
+//      - Good for when object itself is null
+//      - Ex. int days = player.DaysSinceLastLoging ?? -1;  // But player can be null. So error anyway
+//      - Good for arrays
+//      - Good for Delegates
+//          - Ex. PropertyChangedEventHandler eventHandler = PropertyChanged;
+//                if(eventHandler != null)
+//                {
+//                      eventHandler(this, new PropertyChangedEventArgs(...));
+//                }
+//                ............. Upgrade to ..............
+//                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(...));

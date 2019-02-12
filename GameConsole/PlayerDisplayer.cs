@@ -20,8 +20,6 @@ namespace GameConsole
                 Console.WriteLine(player.Name);
             }
 
-
-
             // GetValueOrDefault is NULL checker
             //int days = player.DaysSinceLastLogin.GetValueOrDefault(-1);
 
