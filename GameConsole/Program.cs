@@ -10,12 +10,16 @@ namespace GameConsole
     {
         static void Main(string[] args)
         {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
+            var player = new PlayerCharacter();
+            player.Name = "Conner";
+            PlayerDisplayer.Write(player);
 
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
+            Console.ReadLine();
         }
     }
 }
+
+// Nullable Value Types
+// - Instance of System.Nullable<T> struct
+// - Represent correct range of values plus additional null value
+// - Wraps around value type
