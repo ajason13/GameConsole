@@ -44,6 +44,28 @@ namespace GameConsole
             string p2 = players?[1]?.Name;
             string p3 = players?[2]?.Name;
 
+            //------------------------------------------------------------------
+
+            // Null Reference Exceptions
+            PlayerCharacter sarah = new PlayerCharacter(new DiamondSkinDefence())
+            {
+                Name = "Sarah"
+            };
+
+            PlayerCharacter amrit = new PlayerCharacter(new IronBonesDefense())
+            {
+                Name = "Amrit"
+            };
+
+            PlayerCharacter gentry = new PlayerCharacter(new NullDefense())
+            {
+                Name = "Gentry"
+            };
+
+            sarah.Hit(10);
+            amrit.Hit(10);
+            gentry.Hit(10);
+
             Console.ReadLine();
         }
     }
@@ -66,6 +88,7 @@ namespace GameConsole
 // - Null-Conditional Operator ?. ?[
 //      - Good for when object itself is null
 //      - Ex. int days = player.DaysSinceLastLoging ?? -1;  // But player can be null. So error anyway
+//            int days = player?.DaysSinceLastLogin ?? -1;  // Also returns -1 if player is null.
 //      - Good for arrays
 //      - Good for Delegates
 //          - Ex. PropertyChangedEventHandler eventHandler = PropertyChanged;
@@ -75,3 +98,6 @@ namespace GameConsole
 //                }
 //                ............. Upgrade to ..............
 //                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(...));
+
+// Null Object Pattern
+// - Interface/Base class has a derived class of NULL which does nothing. Other classes can be instantiated.

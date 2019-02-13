@@ -26,6 +26,8 @@ namespace GameConsole
         // Default value is null. Don't need to set in constructor.
         public bool? IsNoob { get; set; }
 
+        private readonly ISpecialDefense _specialDefense;
+
         public PlayerCharacter()
         {
             DaysSinceLastLogin = null;
@@ -35,6 +37,31 @@ namespace GameConsole
             DaysSinceLastLogin = -1;            // Magic Number
             DateOfBirth = DateTime.MinValue;    // Magic Number
             */
+        }
+
+        public PlayerCharacter(ISpecialDefense specialDefense)
+        {
+            _specialDefense = specialDefense;
+        }
+
+        public int Health { get; set; } = 100;
+
+        public void Hit(int damage)
+        {
+            //int damageReduction = 0;
+
+            //if(_specialDefense != null)
+            //{
+            //damageReduction = _specialDefense.CalculateDamageReduction(damage);
+            //}
+
+            //int totalDamageTaken = damage - damageReduction;
+
+            int totalDamageTaken = damage - _specialDefense.CalculateDamageReduction(damage);
+
+            Health -= totalDamageTaken;
+
+            Console.WriteLine($"{Name}'s health has been reduced by {totalDamageTaken} to {Health}.");
         }
     }
 }
