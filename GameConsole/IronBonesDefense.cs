@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace GameConsole
 {
-    class IronBonesDefense : ISpecialDefense
+    class IronBonesDefense : SpecialDefense
     {
-        public int CalculateDamageReduction(int totalDamage)
+        public override int CalculateDamageReduction(int totalDamage)
         {
             return 5;
         }

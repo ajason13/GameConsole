@@ -26,7 +26,7 @@ namespace GameConsole
         // Default value is null. Don't need to set in constructor.
         public bool? IsNoob { get; set; }
 
-        private readonly ISpecialDefense _specialDefense;
+        private readonly SpecialDefense _specialDefense;
 
         public PlayerCharacter()
         {
@@ -39,7 +39,7 @@ namespace GameConsole
             */
         }
 
-        public PlayerCharacter(ISpecialDefense specialDefense)
+        public PlayerCharacter(SpecialDefense specialDefense)
         {
             _specialDefense = specialDefense;
         }

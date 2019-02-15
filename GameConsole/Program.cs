@@ -57,7 +57,8 @@ namespace GameConsole
                 Name = "Amrit"
             };
 
-            PlayerCharacter gentry = new PlayerCharacter(new NullDefense())
+            //PlayerCharacter gentry = new PlayerCharacter(new NullDefense())
+            PlayerCharacter gentry = new PlayerCharacter(SpecialDefense.Null)
             {
                 Name = "Gentry"
             };
@@ -100,4 +101,9 @@ namespace GameConsole
 //                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(...));
 
 // Null Object Pattern
-// - Interface/Base class has a derived class of NULL which does nothing. Other classes can be instantiated.
+// - Interface/Base class has a derived class of NULL which does nothing
+// - Implement as Singleton to save space (Need to use abstract base class)
+// - Considerations
+//      - All devs must know about null object pattern
+//      - Calling client code needs to conform on what "do nothing" means
+//      - Not used for error handling (IMPORTANT)
